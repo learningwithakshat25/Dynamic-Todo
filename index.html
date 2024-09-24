@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic-Todo</title>
+</head>
+
+<body>
+    <div class="container col-sm-6 mt-4">
+        <h1>Dynamic-Todo</h1>
+        <hr>
+        <div class="task">
+
+        </div>
+        <br>
+        <button id="addtask" class="btn btn-info form-control">Add Task</button>
+        <br>
+        <br>
+        <div class="entries">
+
+        </div>
+    </div>
+
+    <script>
+
+
+
+
+        addtask.addEventListener("click", function () {
+            
+            var addtask = document.getElementById("addtask");
+            var input = document.createElement("input");
+            var task = document.querySelector(".task");
+            var remove = document.createElement("button");
+            var add = document.createElement("button");
+            var entries = document.querySelector(".entries");
+            var entry = document.createElement("p");
+            let br = document.createElement("br");
+            console.log("click on AddTask btn!!");
+
+            input.placeholder = "Enter Your Task : ";
+            input.style.border = "1px solid red";
+            input.style.padding = "10px";
+            input.style.borderRadius = "8px";
+            input.style.marginBottom = "6px";
+            task.appendChild(input);
+            task.appendChild(add);
+            task.appendChild(remove);
+            task.appendChild(br);
+
+            add.classList = "btn btn-success ms-3";
+            add.innerText = "Add";
+            add.style.padding = "10px 20px";
+            add.style.borderRadius = "8px";
+            add.style.marginBottom = "6px";
+
+            remove.classList = "btn btn-danger ms-3";
+            remove.innerText = "Remove";
+            remove.style.padding = "10px";
+            remove.style.borderRadius = "8px";
+            remove.style.marginBottom = "6px";
+            
+
+            remove.addEventListener("click", function () {
+                console.log("click on Remove btn");
+                input.remove();
+                remove.remove();
+                add.remove();
+                entry.remove();
+            })
+
+            entry.style.padding = "10px";
+            entry.style.backgroundColor = "lightblue";
+            entry.style.color = "black";
+            entry.style.fontSize = "16px";
+
+            add.addEventListener("click", function () {
+                console.log("Click on Add Button!!");
+                entries.appendChild(entry);
+                console.log(input.value);
+                entry.innerText = input.value;
+                input.value = "";
+            })
+
+
+        })
+    </script>
+</body>
+
+</html>
